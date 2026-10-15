@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(README\.txt|demo_credentials\.txt)$">
+  Require all denied
+</FilesMatch>
