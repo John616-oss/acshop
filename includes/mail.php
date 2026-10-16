@@ -19,27 +19,26 @@ function send_verification_email(
     $mail = new PHPMailer(true);
 
     try {
-        // Gmail SMTP settings
+        // Configure these variables in Apache/PHP; never commit mail credentials.
+        $host = getenv('MAIL_HOST') ?: '';
+        $username = getenv('MAIL_USERNAME') ?: '';
+        $password = getenv('MAIL_PASSWORD') ?: '';
+        $from = getenv('MAIL_FROM') ?: $username;
+        $port = (int) (getenv('MAIL_PORT') ?: 587);
+        if ($host === '' || $username === '' || $password === '' || $from === '') {
+            error_log('Verification email not sent: SMTP environment is not configured.');
+            return false;
+        }
+
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-
-        // PALITAN ng sarili mong Gmail address
-        $mail->Username   = 'johncarloverzosa29@gmail.com';
-
-        // GAMITIN ang Gmail App Password, hindi normal password
-        $mail->Password   = 'pikt zjte mzaa vxsn';
-
+        $mail->Host = $host;
+        $mail->SMTPAuth = true;
+        $mail->Username = $username;
+        $mail->Password = $password;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-
+        $mail->Port = $port;
         $mail->CharSet = 'UTF-8';
-
-        // Sender must match your Gmail account
-        $mail->setFrom(
-            'johncarloverzosa29@gmail.com',
-            APP_NAME
-        );
+        $mail->setFrom($from, APP_NAME);
 
         $mail->addAddress($email, $name);
 

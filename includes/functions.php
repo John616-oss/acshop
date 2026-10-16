@@ -50,8 +50,8 @@ function layout_header(string $title): void {
         }
         if (in_array($user['role'], ['admin','staff'], true)) {
             echo $navLink('staff/inventory.php', 'Inventory');
-            echo $navLink('staff/restocking.php', 'Restocking');
         }
+        echo $navLink('staff/restocking.php', 'Restocking');
         echo $navLink('cashier/pos.php', 'POS');
         echo $navLink('reports/index.php', 'Reports');
         echo '<span class="user-chip"><span class="user-avatar" aria-hidden="true">' . e(strtoupper(substr($user['name'] ?? 'U', 0, 1))) . '</span><span>' . e($user['name'] ?? 'User') . '<small>' . e(ucfirst($user['role'] ?? 'staff')) . '</small></span></span>';

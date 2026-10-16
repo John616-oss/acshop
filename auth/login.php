@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
 
         // MySQLi prepared statement
-        $sql = "SELECT id, name, email, password_hash, role, is_verified
+        $sql = "SELECT id, name, email, password_hash, role, is_verified, is_active
                 FROM users
                 WHERE email = ?
                 LIMIT 1";
@@ -54,6 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Please verify your email first. '
                 . '<a href="' . BASE_URL
                 . '/auth/resend_verification.php">Resend link</a>.';
+
+        } elseif ((int) $user['is_active'] !== 1) {
+
+            $error = 'This account is inactive. Please contact an administrator.';
 
         } else {
 

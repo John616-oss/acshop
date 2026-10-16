@@ -30,10 +30,11 @@ INSTALLATION ON XAMPP
 10. Log in again. From Admin > Users, assign a second account to staff and a third to cashier.
 
 EMAIL VERIFICATION
-The starter uses PHP mail(). It may not deliver mail on a default XAMPP installation.
-Configure a working SMTP transport for your local environment (recommended: PHPMailer installed locally),
-or configure PHP mail delivery. Keep real SMTP credentials outside the submitted ZIP. Verification links
-are random, stored as SHA-256 hashes, expire after 30 minutes, and cannot be reused.
+Email verification uses PHPMailer with SMTP. Configure these environment variables for Apache/PHP:
+MAIL_HOST, MAIL_PORT (usually 587), MAIL_USERNAME, MAIL_PASSWORD, and MAIL_FROM. For Gmail, use
+smtp.gmail.com and a Gmail App Password. Restart Apache after changing its environment configuration.
+Keep real SMTP credentials outside the submitted ZIP. Verification links are random, stored as SHA-256
+hashes, expire after 30 minutes, and cannot be reused. Test delivery using a real inbox before the demo.
 
 DEMO DATA
 The SQL file seeds categories, a sample supplier, and sample products.
