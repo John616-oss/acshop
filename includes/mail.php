@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/mail_config.php';
 
 function send_verification_email(
     string $email,
@@ -20,11 +21,11 @@ function send_verification_email(
 
     try {
         // Configure these variables in Apache/PHP; never commit mail credentials.
-        $host = getenv('MAIL_HOST') ?: '';
-        $username = getenv('MAIL_USERNAME') ?: '';
-        $password = getenv('MAIL_PASSWORD') ?: '';
-        $from = getenv('MAIL_FROM') ?: $username;
-        $port = (int) (getenv('MAIL_PORT') ?: 587);
+        $host = MAIL_HOST;
+    $username = MAIL_USERNAME;
+    $password = MAIL_PASSWORD;
+    $from = MAIL_FROM;
+    $port = MAIL_PORT;
         if ($host === '' || $username === '' || $password === '' || $from === '') {
             error_log('Verification email not sent: SMTP environment is not configured.');
             return false;

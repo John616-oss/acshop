@@ -45,9 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
 
         // Validate email and password
-        if (!$user || !password_verify($password, $user['password_hash'])) {
-
+        
+        // Validate email and password
+        if (
+            !$user ||
+            !password_verify($password, $user['password_hash'])
+        ) {
             $error = 'Invalid email or password.';
+
+        } elseif ((int) $user['is_active'] !== 1) {
+
+            $error = 'This account is inactive. Please contact an administrator.';
 
         } elseif ((int) $user['is_verified'] !== 1) {
 
@@ -55,11 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 . '<a href="' . BASE_URL
                 . '/auth/resend_verification.php">Resend link</a>.';
 
-        } elseif ((int) $user['is_active'] !== 1) {
-
-            $error = 'This account is inactive. Please contact an administrator.';
-
         } else {
+
 
             // Regenerate session ID
             session_regenerate_id(true);
