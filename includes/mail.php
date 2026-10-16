@@ -83,3 +83,81 @@ function send_verification_email(
         return false;
     }
 }
+
+function send_admin_inactive_account_notice(
+    string $userEmail,
+    string $userName
+): bool {
+
+    if (!defined('ADMIN_EMAIL') || ADMIN_EMAIL === '') {
+        error_log('Admin notification failed: ADMIN_EMAIL is not configured.');
+        return false;
+    }
+
+    $adminUrl = BASE_URL . '/admin/users.php';
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = MAIL_HOST;
+        $mail->SMTPAuth = true;
+        $mail->Username = MAIL_USERNAME;
+        $mail->Password = MAIL_PASSWORD;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = MAIL_PORT;
+        $mail->CharSet = 'UTF-8';
+
+        $mail->setFrom(MAIL_FROM, APP_NAME);
+        $mail->addAddress(ADMIN_EMAIL);
+
+        $safeName = htmlspecialchars(
+            $userName,
+            ENT_QUOTES | ENT_SUBSTITUTE,
+            'UTF-8'
+        );
+
+        $safeEmail = htmlspecialchars(
+            $userEmail,
+            ENT_QUOTES | ENT_SUBSTITUTE,
+            'UTF-8'
+        );
+
+        $safeAdminUrl = htmlspecialchars(
+            $adminUrl,
+            ENT_QUOTES | ENT_SUBSTITUTE,
+            'UTF-8'
+        );
+
+        $mail->isHTML(true);
+        $mail->Subject = APP_NAME . ' - Inactive Account Request';
+
+        $mail->Body = "
+            <h2>Inactive Account Request</h2>
+            <p>A user with an inactive account requested assistance.</p>
+            <p><strong>Name:</strong> {$safeName}</p>
+            <p><strong>Email:</strong> {$safeEmail}</p>
+            <p>Please sign in to the admin panel and review this account.</p>
+            <p><a href=\"{$safeAdminUrl}\">Open User Management</a></p>
+            <p>This notification does not activate the account.</p>
+        ";
+
+        $mail->AltBody =
+            "Inactive Account Request\n\n"
+            . "Name: {$userName}\n"
+            . "Email: {$userEmail}\n\n"
+            . "Sign in to the admin panel to review this account:\n"
+            . $adminUrl
+            . "\n\nThis notification does not activate the account.";
+
+        $mail->send();
+        return true;
+
+    } catch (Exception $e) {
+        error_log(
+            'Admin notification failed: ' . $mail->ErrorInfo
+        );
+        return false;
+    }
+}
+
