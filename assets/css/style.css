@@ -1524,3 +1524,174 @@ footer {
         overflow-x: auto;
     }
 }
+
+/* Left sidebar application layout */
+@media (min-width: 681px) {
+    body:has(.app-shell) {
+        min-height: 100vh;
+        padding-left: 260px;
+    }
+
+    .topbar:has(#primary-navigation) {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 10;
+        width: 260px;
+        min-height: 100vh;
+        padding: 28px 18px;
+        align-items: stretch;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 30px;
+        border-right: 1px solid #dfe9e2;
+        border-bottom: 0;
+        background: rgba(255,255,255,.97);
+        box-shadow: 8px 0 28px rgba(23,43,36,.04);
+    }
+
+    .topbar:has(#primary-navigation) .brand {
+        padding: 0 8px;
+    }
+
+    .topbar:has(#primary-navigation) .primary-navigation {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 5px;
+        padding: 0;
+        border: 0;
+    }
+
+    .primary-navigation > a:not(.btn) {
+        display: flex;
+        align-items: center;
+        min-height: 43px;
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+
+    .primary-navigation > a[aria-current="page"] {
+        box-shadow: inset 3px 0 0 var(--green);
+    }
+
+    .topbar:has(#primary-navigation) .user-chip {
+        max-width: none;
+        margin: auto 0 0;
+    }
+
+    .topbar:has(#primary-navigation) .logout-link {
+        margin-top: 2px;
+    }
+
+    .container {
+        max-width: 1440px;
+        min-height: calc(100vh - 60px);
+        padding: 38px clamp(24px, 4vw, 58px) 60px;
+    }
+
+    footer {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 680px) {
+    body:has(.app-shell) {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 680px) {
+    body:has(.app-shell) .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        min-height: 64px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        background: rgba(255,255,255,.97);
+    }
+
+    body:has(.app-shell) .nav-toggle {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: #fff;
+        color: var(--green-dark);
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    body:has(.app-shell) .primary-navigation {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 14px;
+        left: 14px;
+        width: auto;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 16px 35px rgba(23,43,36,.14);
+    }
+
+    body:has(.app-shell) .primary-navigation.is-open {
+        display: grid;
+    }
+
+    body:has(.app-shell) .primary-navigation > a:not(.btn) {
+        min-height: 42px;
+    }
+
+    body:has(.app-shell) .primary-navigation .user-chip {
+        display: inline-flex;
+        margin: 6px 0 0;
+    }
+}
+
+/* Keep the desktop sidebar stable across laptop and wide screens. */
+@media (min-width: 681px) {
+    .topbar:has(#primary-navigation) {
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .topbar:has(#primary-navigation) .primary-navigation {
+        flex: 1 0 auto;
+        width: 100%;
+    }
+
+    .topbar:has(#primary-navigation) .primary-navigation > a {
+        flex: 0 0 auto;
+    }
+}
+
+@media (min-width: 681px) and (max-width: 900px) {
+    body:has(.app-shell) {
+        padding-left: 230px;
+    }
+
+    .topbar:has(#primary-navigation) {
+        width: 230px;
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    body:has(.app-shell) .container {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}

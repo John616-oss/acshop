@@ -35,10 +35,11 @@ function layout_header(string $title): void {
         return '<a href="' . e($href) . '"' . ($active ? ' aria-current="page"' : '') . '>' . e($label) . '</a>';
     };
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">';
-    echo '<title>' . e($title) . ' | ' . e(APP_NAME) . '</title><link rel="stylesheet" href="' . BASE_URL . '/assets/css/style.css?v=5">';
+    echo '<title>' . e($title) . ' | ' . e(APP_NAME) . '</title><link rel="stylesheet" href="' . BASE_URL . '/assets/css/style.css?v=6">';
     echo '<script defer src="' . BASE_URL . '/assets/js/app.js"></script></head><body>';
     echo '<header class="topbar"><a class="brand" href="' . BASE_URL . '/index.php"><span class="brand-mark" aria-hidden="true">🛒</span><span>Sari-Sari Store</span></a>';
     if ($user) {
+        echo '<button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false"><span class="nav-toggle-icon" aria-hidden="true">&#9776;</span><span class="sr-only">Open navigation</span></button>';
         echo '<nav id="primary-navigation" class="primary-navigation" aria-label="Main navigation">';
         echo $navLink('dashboard.php', 'Dashboard');
         if ($user['role'] === 'admin') {
@@ -59,8 +60,8 @@ function layout_header(string $title): void {
     } else {
         echo '<nav class="primary-navigation" aria-label="Main navigation"><a href="' . BASE_URL . '/auth/login.php">Sign in</a><a class="btn btn-small" href="' . BASE_URL . '/auth/register.php">Create account</a></nav>';
     }
-    echo '</header><main class="container" id="page-content">';
+    echo '</header><div class="app-shell"><main class="container" id="page-content">';
     if ($flash) echo '<div class="alert alert-' . e($flash['type']) . '">' . e($flash['message']) . '</div>';
     echo '<div class="page-heading"><div><p class="eyebrow">STORE OPERATIONS</p><h1>' . e($title) . '</h1></div><span class="date-pill">' . date('M d, Y') . '</span></div>';
 }
-function layout_footer(): void { echo '</main><footer> Sari-Sari Store Management System · PHP + MySQLi · Local demo project</footer></body></html>'; }
+function layout_footer(): void { echo '</main></div><footer> Sari-Sari Store Management System · PHP + MySQLi · Local demo project</footer></body></html>'; }
