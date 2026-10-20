@@ -1,12 +1,12 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/includes/functions.php';
 if (current_user()) redirect('dashboard.php');
 layout_header('Welcome');
 ?>
 <section class="hero landing-hero">
   <div class="hero-copy">
-    <h2>Know your stocks.<br><span>Track every sale.</span></h2>
-    <p>Manage products, sales, inventory, restocking, and reports in one simple web application built for a neighborhood sari-sari store.</p>
+    <h2>Run Your Store.<br><span>Grow Your Business.</span></h2>
+    <p>All-in-one solution for managing products, sales, inventory, and daily store operations.</p>
     <div class="actions"><a class="btn" href="<?= BASE_URL ?>/auth/login.php">Sign in</a><a class="btn btn-outline" href="<?= BASE_URL ?>/auth/register.php">Create account</a></div>
   </div>
 </section>
