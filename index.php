@@ -1,20 +1,13 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/includes/functions.php';
 if (current_user()) redirect('dashboard.php');
 layout_header('Welcome');
 ?>
 <section class="hero landing-hero">
   <div class="hero-copy">
-    <span class="tag">SMARTER STORE OPERATIONS</span>
     <h2>Know your stocks.<br><span>Track every sale.</span></h2>
     <p>Manage products, sales, inventory, restocking, and reports in one simple web application built for a neighborhood sari-sari store.</p>
     <div class="actions"><a class="btn" href="<?= BASE_URL ?>/auth/login.php">Sign in</a><a class="btn btn-outline" href="<?= BASE_URL ?>/auth/register.php">Create account</a></div>
-  </div>
-  <div class="hero-art" aria-label="Store inventory and sales overview">
-    <div class="hero-orbit"></div>
-    <div class="store-illustration"><span class="store-roof"></span><span class="store-awning"><i></i><i></i><i></i><i></i></span><span class="store-window"></span><span class="store-door"></span></div>
-    <div class="mini-stat inventory-stat"><span class="mini-stat-icon">▦</span><span><b>Inventory</b><small>Organized</small></span></div>
-    <div class="mini-stat sales-stat"><span class="mini-stat-icon">↗</span><span><b>Sales</b><small>Recorded</small></span></div>
   </div>
 </section>
 <section class="landing-features" aria-label="Store features">
@@ -23,3 +16,6 @@ layout_header('Welcome');
  <article class="card landing-feature"><div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h17"/><path d="M8 16v-4M13 16V8M18 16V5"/></svg></div><div><h3>Useful reports</h3><p>Filter transactions and review store performance.</p></div></article>
 </section>
 <?php layout_footer(); ?>
+
+
+

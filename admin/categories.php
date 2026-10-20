@@ -69,13 +69,13 @@ layout_header('Categories');
     </section>
     <section class="card">
         <h2>Categories</h2>
-        <div class="table-wrap"><table>
+        <div class="table-wrap"><table class="category-table">
             <thead><tr><th>Name</th><th>Description</th><th>Actions</th></tr></thead>
             <tbody>
             <?php $q = $conn->query('SELECT * FROM categories ORDER BY name'); while ($c = $q->fetch_assoc()): ?>
                 <tr>
                     <td><?= e($c['name']) ?></td><td><?= e($c['description']) ?></td>
-                    <td class="actions-cell">
+                    <td class="actions-cell category-actions">
                         <a class="btn btn-small btn-action btn-edit" href="?edit=<?= (int)$c['id'] ?>">Edit</a>
                         <form method="post" class="inline" onsubmit="return confirm('Delete this category? Products in it will become uncategorized.');"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$c['id'] ?>"><input type="hidden" name="action" value="delete"><button class="btn btn-small btn-action btn-reject">Delete</button></form>
                     </td>

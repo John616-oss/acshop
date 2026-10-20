@@ -1844,3 +1844,248 @@ footer {
     }
     body:has(.auth-card) footer { margin-left: 0; }
 }
+
+/* Public landing page inspired by the supplied storefront reference. */
+body:has(.landing-hero) { background: #f4f8f6; }
+body:has(.landing-hero) .page-heading { display: none; }
+body:has(.landing-hero) .container { max-width: none; padding: 0 6.7% 48px; }
+.landing-hero {
+    display: flex; align-items: center; min-height: min(620px, 68vw); margin: 0 -7.2% 0;
+    padding: 70px 10.2%; border-radius: 0; color: #fff;
+    background: linear-gradient(90deg, rgba(8,25,20,.76), rgba(8,25,20,.40) 48%, rgba(8,25,20,.08)), url('../images/sari-sari-store-interior.png') center 48%/cover no-repeat;
+    box-shadow: none;
+}
+.landing-hero::before { display: none; }
+.landing-hero .hero-copy { max-width: 670px; }
+.landing-hero .tag { color: #fff; letter-spacing: 1.2px; font-weight: 800; }
+.landing-hero h2 { max-width: 650px; margin: 12px 0 16px; color: #fff; font-size: clamp(42px, 4vw, 62px); line-height: 1.05; letter-spacing: -1.7px; }
+.landing-hero h2 span { color: #8cf0be; }
+.landing-hero p { max-width: 610px; color: rgba(255,255,255,.95); font-size: 17px; line-height: 1.65; }
+.landing-hero .actions { gap: 14px; margin-top: 25px; }
+.landing-hero .actions .btn { min-width: 116px; border-radius: 999px; background: #079c72; }
+.landing-hero .actions .btn-outline { border: 2px solid #fff; background: transparent; color: #fff; }
+.landing-features { position: relative; z-index: 2; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin: -64px 0 0; }
+.landing-feature { min-height: 112px; align-items: center; padding: 22px 24px; border: 1px solid rgba(18,89,65,.06); border-radius: 20px; background: rgba(255,255,255,.97); box-shadow: 0 12px 32px rgba(17,51,39,.12); }
+.landing-feature h3 { color: #08715c; font-size: 16px; }
+.landing-feature p { font-size: 13px; }
+@media(max-width:760px) {
+ body:has(.landing-hero) .container { padding: 0 16px 34px; }
+ .landing-hero { min-height: 570px; margin: 0 -16px; padding: 60px 28px 100px; background-position: 57% center; }
+ .landing-hero h2 { font-size: clamp(38px, 9vw, 54px); }
+ .landing-hero p { font-size: 15px; }
+ .landing-features { grid-template-columns: 1fr; gap: 12px; margin-top: -70px; }
+ .landing-feature { min-height: 90px; }
+}
+
+/* Reuse the storefront photo behind the public login and registration forms. */
+body:has(.auth-card) {
+    min-height: 100vh;
+    background: linear-gradient(rgba(10, 34, 25, .42), rgba(10, 34, 25, .48)), url('../images/sari-sari-store-interior.png') center/cover fixed no-repeat;
+}
+body:has(.auth-card) .app-shell { background: transparent; }
+body:has(.auth-card) .page-heading { display: none; }
+body:has(.auth-card) .container {
+    min-height: calc(100vh - 150px);
+    display: grid;
+    align-content: center;
+    padding-top: 32px;
+    padding-bottom: 42px;
+}
+body:has(.auth-card) .auth-card {
+    width: min(100%, 470px);
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 20px;
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 22px 65px rgba(0,0,0,.28);
+    backdrop-filter: blur(8px);
+}
+body:has(.auth-card) footer {
+    margin-left: 0;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,.65);
+}
+@media (max-width: 680px) {
+    body:has(.auth-card) .container { min-height: calc(100vh - 140px); padding: 24px 16px; }
+    body:has(.auth-card) .auth-card { padding: 26px 22px; }
+}
+
+/* Strong, readable calls to action on the landing and auth pages. */
+body:has(.landing-hero) .topbar .primary-navigation > a:not(.btn) {
+    color: #075b4c;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+}
+body:has(.landing-hero) .topbar .primary-navigation > a:not(.btn):hover { color: #079c72; }
+body:has(.landing-hero) .topbar .primary-navigation > .btn {
+    padding: 12px 21px;
+    border: 2px solid #087653;
+    border-radius: 999px;
+    background: #087653;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 5px 14px rgba(4,91,62,.2);
+}
+body:has(.landing-hero) .landing-hero .actions .btn {
+    min-width: 132px;
+    min-height: 52px;
+    padding: 13px 24px;
+    border: 2px solid #08a879;
+    background: #08a879;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 7px 20px rgba(0,0,0,.22);
+}
+body:has(.landing-hero) .landing-hero .actions .btn:hover {
+    background: #087653;
+    border-color: #087653;
+    transform: translateY(-2px);
+}
+body:has(.landing-hero) .landing-hero .actions .btn-outline {
+    min-width: 190px;
+    border: 2px solid #fff;
+    background: #fff;
+    color: #075b4c;
+    text-shadow: none;
+}
+body:has(.landing-hero) .landing-hero .actions .btn-outline:hover {
+    border-color: #d9f5e8;
+    background: #d9f5e8;
+    color: #064c3f;
+}
+body:has(.auth-card) .auth-card .btn.full {
+    width: auto;
+    min-width: 132px;
+    min-height: 52px;
+    border: 2px solid #08a879;
+    border-radius: 999px;
+    background: #08a879;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 7px 20px rgba(0,0,0,.22);
+}
+body:has(.auth-card) .auth-card .btn.full:hover {
+    background: #087653;
+    border-color: #087653;
+    transform: translateY(-2px);
+}
+
+/* Match the public auth navigation buttons to the landing page actions. */
+body:has(.auth-card) .topbar .primary-navigation > a:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 132px;
+    min-height: 52px;
+    padding: 13px 24px;
+    border: 2px solid #08a879;
+    border-radius: 999px;
+    background: #08a879;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 7px 20px rgba(0,0,0,.22);
+}
+body:has(.auth-card) .topbar .primary-navigation > a:first-child:hover {
+    background: #087653;
+    border-color: #087653;
+    color: #fff;
+    transform: translateY(-2px);
+}
+body:has(.auth-card) .topbar .primary-navigation > a.btn {
+    min-width: 190px;
+    min-height: 52px;
+    padding: 13px 24px;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    background: #fff;
+    color: #075b4c;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 7px 20px rgba(0,0,0,.12);
+}
+body:has(.auth-card) .topbar .primary-navigation > a.btn:hover {
+    border-color: #d9f5e8;
+    background: #d9f5e8;
+    color: #064c3f;
+    transform: translateY(-2px);
+}
+/* Let the storefront hero image reach both viewport edges. */
+body:has(.landing-hero) .landing-hero {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+/* Refine the public sign-in and registration card. */
+body:has(.auth-card) .auth-card {
+    padding: 38px 40px;
+    border: 1px solid rgba(255,255,255,.82);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(255,255,255,.99), rgba(246,251,248,.97));
+    box-shadow: 0 28px 75px rgba(0,0,0,.32), 0 3px 12px rgba(5,76,54,.08);
+}
+body:has(.auth-card) .auth-card h2 {
+    margin: 0 0 8px;
+    color: #173f35;
+    font-family: Manrope, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -.6px;
+}
+body:has(.auth-card) .auth-card > .muted {
+    margin: 0 0 24px;
+    color: #71837d !important;
+    font-size: 14px;
+}
+body:has(.auth-card) .auth-card form label {
+    gap: 8px;
+    margin-bottom: 18px;
+    color: #40584f;
+    font-size: 13px;
+    font-weight: 700;
+}
+body:has(.auth-card) .auth-card input:not([type=checkbox]) {
+    min-height: 48px;
+    padding: 11px 14px;
+    border: 1px solid #d3e2da;
+    border-radius: 12px;
+    background: rgba(255,255,255,.9);
+    font-size: 14px;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+body:has(.auth-card) .auth-card input:not([type=checkbox]):focus {
+    border-color: #08a879;
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(8,168,121,.13);
+}
+body:has(.auth-card) .auth-card form .btn.full { margin-top: 4px; }
+body:has(.auth-card) .auth-card > .muted:not(:first-of-type) { margin-top: 16px; }
+@media (max-width: 680px) {
+    body:has(.auth-card) .auth-card { padding: 30px 24px; border-radius: 20px; }
+}
+/* Keep category edit and delete actions side by side. */
+.category-table { table-layout: fixed; }
+.category-table th:nth-child(1), .category-table td:nth-child(1) { width: 24%; }
+.category-table th:nth-child(2), .category-table td:nth-child(2) { width: 46%; }
+.category-table th:nth-child(3), .category-table td:nth-child(3) { width: 30%; }
+.category-table td:nth-child(2) { white-space: normal; }
+.category-table .category-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.category-table .category-actions .btn.btn-action {
+    min-height: 30px;
+    padding: 5px 7px;
+}

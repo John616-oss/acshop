@@ -35,7 +35,7 @@ function layout_header(string $title): void {
         return '<a href="' . e($href) . '"' . ($active ? ' aria-current="page"' : '') . '>' . e($label) . '</a>';
     };
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">';
-    echo '<title>' . e($title) . ' | ' . e(APP_NAME) . '</title><link rel="stylesheet" href="' . BASE_URL . '/assets/css/style.css?v=10">';
+    echo '<title>' . e($title) . ' | ' . e(APP_NAME) . '</title><link rel="stylesheet" href="' . BASE_URL . '/assets/css/style.css?v=15">';
     echo '<script defer src="' . BASE_URL . '/assets/js/app.js"></script></head><body>';
     echo '<header class="topbar"><a class="brand" href="' . BASE_URL . '/index.php"><span class="brand-mark" aria-hidden="true">🛒</span><span>Sari-Sari Store</span></a>';
     if ($user) {
