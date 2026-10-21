@@ -2089,3 +2089,234 @@ body:has(.auth-card) .auth-card > .muted:not(:first-of-type) { margin-top: 16px;
     min-height: 30px;
     padding: 5px 7px;
 }
+/* Operational workspace refinement */
+:root {
+    --green: #137a58;
+    --green-dark: #0d6247;
+    --green-pale: #e8f5ed;
+    --ink: #183329;
+    --muted: #6b7f75;
+    --line: #e2ebe5;
+    --shadow: 0 10px 28px rgba(25, 58, 42, .055);
+}
+
+body:has(.app-shell) {
+    background:
+        radial-gradient(ellipse at 92% 2%, rgba(222, 241, 229, .55), transparent 28rem),
+        #f5f8f5;
+}
+
+.page-heading {
+    align-items: flex-end;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(210, 225, 215, .8);
+}
+
+.page-heading h1 {
+    color: #173a2b;
+    font-size: clamp(25px, 2.3vw, 32px);
+}
+
+.date-pill {
+    color: #496458;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(25, 58, 42, .04);
+}
+
+.card,
+.stat-card {
+    border-color: #e3ece6;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(25, 58, 42, .045);
+}
+
+.card h2 {
+    color: #203d30;
+}
+
+body:has(.grid.four > .stat-card) .grid.four {
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+body:has(.grid.four > .stat-card) .grid.four::before {
+    content: "STORE SNAPSHOT";
+    grid-column: 1 / -1;
+    margin: 0 0 -3px 2px;
+    color: #71877a;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+body:has(.grid.four > .stat-card) .stat-card {
+    position: relative;
+    min-height: 142px;
+    overflow: hidden;
+    gap: 9px;
+    padding: 21px 22px;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #fff, #fbfdfb);
+}
+
+body:has(.grid.four > .stat-card) .stat-card::after {
+    position: absolute;
+    right: -24px;
+    bottom: -36px;
+    width: 104px;
+    height: 104px;
+    border: 1px solid rgba(19, 122, 88, .08);
+    border-radius: 50%;
+    content: "";
+    box-shadow: 0 0 0 13px rgba(19, 122, 88, .025), 0 0 0 27px rgba(19, 122, 88, .02);
+    pointer-events: none;
+}
+
+body:has(.grid.four > .stat-card) .stat-card > span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #62776b;
+    font-size: 12px;
+}
+
+body:has(.grid.four > .stat-card) .stat-card > span::before {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #16805d;
+    box-shadow: 0 0 0 5px #e8f5ed;
+    content: "";
+}
+
+body:has(.grid.four > .stat-card) .stat-card:nth-child(3) > span::before {
+    background: #d28b16;
+    box-shadow: 0 0 0 5px #fff2d7;
+}
+
+body:has(.grid.four > .stat-card) .stat-card > strong {
+    color: #173a2b;
+    font-size: clamp(25px, 2.2vw, 31px);
+    line-height: 1.15;
+}
+
+body:has(.grid.four > .stat-card) .stat-card > small {
+    color: #829389;
+    font-size: 11px;
+}
+
+body:has(.grid.four > .stat-card) .stat-card.warning-stat {
+    border-color: #f0e4c9;
+    background: linear-gradient(145deg, #fffefa, #fffaf0);
+}
+
+.section-gap {
+    margin-top: 21px;
+}
+
+.quick-links a {
+    position: relative;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    padding: 15px 40px 15px 16px;
+    border-color: #e6ede8;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #fbfdfb, #f5f9f6);
+    color: #284b39;
+    transition: border-color .16s ease, background .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+
+.quick-links a::after {
+    position: absolute;
+    right: 15px;
+    color: #16805d;
+    content: "↗";
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.quick-links a:hover {
+    border-color: #b9ddc8;
+    background: #f1f8f3;
+    box-shadow: 0 5px 13px rgba(19, 122, 88, .07);
+    transform: translateY(-2px);
+}
+
+.table-wrap {
+    border: 1px solid #e8eee9;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.table-wrap table {
+    font-size: 12px;
+}
+
+.table-wrap th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #f5f9f6;
+}
+
+.table-wrap td {
+    color: #40564a;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.btn {
+    min-height: 40px;
+    border-radius: 11px;
+    background: #137a58;
+    border-color: #137a58;
+    box-shadow: 0 4px 10px rgba(19, 122, 88, .12);
+}
+
+input,
+select,
+textarea {
+    min-height: 42px;
+    border-color: #d5e1d9;
+    border-radius: 11px;
+    background-color: #fff;
+}
+
+textarea {
+    min-height: 88px;
+}
+
+@media (max-width: 680px) {
+    .page-heading {
+        padding-bottom: 14px;
+    }
+
+    body:has(.grid.four > .stat-card) .grid.four {
+        gap: 10px;
+    }
+
+    body:has(.grid.four > .stat-card) .stat-card {
+        min-height: 122px;
+        padding: 15px 14px;
+    }
+
+    body:has(.grid.four > .stat-card) .stat-card > span {
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    body:has(.grid.four > .stat-card) .stat-card > strong {
+        font-size: 22px;
+    }
+}
+/* Keep outlined button labels readable after primary button styling. */
+.btn-outline {
+    border-color: var(--green);
+    background: #fff;
+    color: var(--green);
+}
