@@ -103,58 +103,75 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 layout_header('Create account');
 ?>
 
-<div class="auth-card card">
-    <h2>Join your store team</h2>
+<div class="auth-page">
+    <section class="auth-welcome">
+        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>ERH Store</a>
+        <div class="auth-welcome-copy">
+            <p class="auth-kicker">JOIN THE TEAM</p>
+            <h2>YOUR STORE.<br><span>YOUR NEXT STEP.</span></h2>
+            <p>Create an account to get started. Email verification and admin approval are required.</p>
+        </div>
+    </section>
 
-    <p class="muted">
-        New accounts require email verification and admin approval.
-    </p>
+    <section class="auth-panel">
+        <div class="auth-card">
+            <p class="auth-form-kicker">ERH STORE</p>
+            <h2>Create account</h2>
+            <p class="muted">Join your store team.</p>
 
-    <?php if ($error): ?>
-        <div class="alert alert-danger"><?= e($error) ?></div>
-    <?php endif; ?>
+            <?php if ($error): ?>
+                <div class="alert alert-danger"><?= e($error) ?></div>
+            <?php endif; ?>
 
-    <form method="post">
-        <?= csrf_field() ?>
+            <form method="post">
+                <?= csrf_field() ?>
 
-        <label>
-            Full name
-            <input
-                name="name"
-                required
-                maxlength="120"
-                value="<?= e($_POST['name'] ?? '') ?>"
-            >
-        </label>
+                <label>
+                    Full name
+                    <input
+                        name="name"
+                        required
+                        maxlength="120"
+                        autocomplete="name"
+                        value="<?= e($_POST['name'] ?? '') ?>"
+                    >
+                </label>
 
-        <label>
-            Email address
-            <input
-                type="email"
-                name="email"
-                required
-                maxlength="190"
-                value="<?= e($_POST['email'] ?? '') ?>"
-            >
-        </label>
+                <label>
+                    Email address
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        maxlength="190"
+                        autocomplete="email"
+                        value="<?= e($_POST['email'] ?? '') ?>"
+                    >
+                </label>
 
-        <label>
-            Password
-            <input
-                type="password"
-                name="password"
-                minlength="8"
-                required
-            >
-        </label>
+                <label>
+                    Password
+                    <span class="password-field">
+                        <input
+                            type="password"
+                            id="register-password"
+                            name="password"
+                            minlength="8"
+                            required
+                            autocomplete="new-password"
+                        >
+                        <button class="password-toggle" type="button" data-password-toggle="register-password" aria-controls="register-password" aria-pressed="false">Show</button>
+                    </span>
+                </label>
 
-        <button class="btn full" type="submit">Create account</button>
-    </form>
+                <button class="btn full" type="submit">Create account</button>
+            </form>
 
-    <p class="muted">
-        Already registered?
-        <a href="<?= BASE_URL ?>/auth/login.php">Sign in</a>
-    </p>
+            <p class="auth-form-switch">
+                Already registered? <a href="<?= BASE_URL ?>/auth/login.php">Sign in</a>
+            </p>
+        </div>
+    </section>
 </div>
 
 <?php layout_footer(); ?>

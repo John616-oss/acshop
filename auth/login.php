@@ -94,60 +94,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 layout_header('Sign in');
 ?>
 
-<div class="auth-card card">
-
-    <h2>Welcome back</h2>
-
-    <p class="muted">
-        Sign in to manage store operations.
-    </p>
-
-    <?php if ($error): ?>
-        <div class="alert alert-danger">
-            <?= $error ?>
+<div class="auth-page">
+    <section class="auth-welcome">
+        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>ERH Store</a>
+        <div class="auth-welcome-copy">
+            <p class="auth-kicker">STORE MANAGEMENT</p>
+            <h2>WELCOME<br><span>TO YOUR STORE</span></h2>
+            <p>Keep products, inventory, and daily sales moving in one place.</p>
         </div>
-    <?php endif; ?>
+    </section>
 
-    <form method="post">
-        <?= csrf_field() ?>
+    <section class="auth-panel">
+        <div class="auth-card">
+            <p class="auth-form-kicker">ERH STORE</p>
+            <h2>Sign in</h2>
+            <p class="muted">Access your store management account.</p>
 
-        <label>
-            Email address
-            <input
-                type="email"
-                name="email"
-                required
-                autocomplete="email"
-                value="<?= htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
-            >
-        </label>
+            <?php if ($error): ?>
+                <div class="alert alert-danger">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
 
-        <label>
-            Password
-            <input
-                type="password"
-                name="password"
-                required
-                autocomplete="current-password"
-            >
-        </label>
+            <form method="post">
+                <?= csrf_field() ?>
 
-        <button type="submit" class="btn full">
-            Sign in
-        </button>
-    </form>
+                <label>
+                    Email address
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        value="<?= htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                    >
+                </label>
 
-    <p class="muted">
-        <a href="<?= BASE_URL ?>/auth/resend_verification.php">
-            Resend verification email
-        </a>
-    </p>
+                <label>
+                    Password
+                    <span class="password-field">
+                        <input
+                            type="password"
+                            id="login-password"
+                            name="password"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button class="password-toggle" type="button" data-password-toggle="login-password" aria-controls="login-password" aria-pressed="false">Show</button>
+                    </span>
+                </label>
 
-    <p class="muted">
-        No account?
-        <a href="<?= BASE_URL ?>/auth/register.php">Register</a>
-    </p>
+                <button type="submit" class="btn full">Sign in</button>
+            </form>
 
+            <p class="auth-form-link">
+                <a href="<?= BASE_URL ?>/auth/resend_verification.php">Resend verification email</a>
+            </p>
+            <p class="auth-form-switch">
+                New to ERH Store? <a href="<?= BASE_URL ?>/auth/register.php">Create account</a>
+            </p>
+        </div>
+    </section>
 </div>
 
 <?php layout_footer(); ?>

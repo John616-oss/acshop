@@ -1,9 +1,9 @@
-﻿SARI-SARI STORE MANAGEMENT SYSTEM
+﻿ERH STORE MANAGEMENT SYSTEM
 =================================
 
 PROJECT OVERVIEW
 ----------------
-A PHP and MySQL web application for managing a sari-sari store. It supports
+A PHP and MySQL web application for managing ERH Store. It supports
 account registration, email verification, role-based access, product and stock
 management, sales checkout, restocking requests, reports, and activity logs.
 

@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-password-toggle]').forEach(button => {
+    const password = document.getElementById(button.dataset.passwordToggle);
+    if (!password) return;
+
+    button.addEventListener('click', () => {
+      const isVisible = password.type === 'text';
+      password.type = isVisible ? 'password' : 'text';
+      button.textContent = isVisible ? 'Show' : 'Hide';
+      button.setAttribute('aria-pressed', String(!isVisible));
+      button.setAttribute('aria-label', `${isVisible ? 'Show' : 'Hide'} password`);
+    });
+  });
+
   const navToggle = document.querySelector('.nav-toggle');
   const navigation = document.getElementById('primary-navigation');
   if (navToggle && navigation) {

@@ -1,4 +1,4 @@
-# Sari-Sari Store Management System Flowchart
+# ERH Store Management System Flowchart
 
 ## Main system flow
 

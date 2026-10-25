@@ -98,7 +98,7 @@ layout_header('Suppliers');
                         <td>
                             <div class="actions-cell">
                                 <a class="btn btn-small btn-action btn-edit" href="<?= e(BASE_URL) ?>/admin/suppliers.php?edit=<?= (int)$s['id'] ?>">Edit</a>
-                                <form action="<?= e(BASE_URL) ?>/admin/suppliers.php" method="post" class="inline" onsubmit="return confirm('Delete this supplier? Existing restock records will be kept without a supplier.');"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$s['id'] ?>"><input type="hidden" name="action" value="delete"><button type="submit" class="btn btn-small btn-action btn-reject">Delete</button></form>
+                                <form action="<?= e(BASE_URL) ?>/admin/suppliers.php" method="post" class="inline" onsubmit="return confirm('Delete this supplier? Existing restock records will be kept without a supplier.');"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$s['id'] ?>"><input type="hidden" name="action" value="delete"><button type="submit" class="btn btn-small btn-action btn-delete">Delete</button></form>
                             </div>
                         </td>
                     </tr>

@@ -84,5 +84,37 @@ redirect('auth/login.php');
 }
 layout_header('Resend verification');
 ?>
-<div class="auth-card card"><h2>Resend verification link</h2><?php if($error): ?><div class="alert alert-danger"><?= e($error) ?></div><?php endif; ?><form method="post"><?= csrf_field() ?><label>Email address<input type="email" name="email" required></label><button class="btn full">Send verification email</button></form></div>
+<div class="auth-page">
+    <section class="auth-welcome">
+        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>ERH Store</a>
+        <div class="auth-welcome-copy">
+            <p class="auth-kicker">ACCOUNT ACCESS</p>
+            <h2>ONE MORE<br><span>STEP TO GO.</span></h2>
+            <p>Verify your email address to continue setting up your store account.</p>
+        </div>
+    </section>
+
+    <section class="auth-panel">
+        <div class="auth-card">
+            <p class="auth-form-kicker">ERH STORE</p>
+            <h2>Resend verification link</h2>
+            <p class="muted">Enter the email address you used to register.</p>
+
+            <?php if ($error): ?>
+                <div class="alert alert-danger"><?= e($error) ?></div>
+            <?php endif; ?>
+
+            <form method="post">
+                <?= csrf_field() ?>
+                <label>
+                    Email address
+                    <input type="email" name="email" required autocomplete="email">
+                </label>
+                <button class="btn full" type="submit">Send verification email</button>
+            </form>
+
+            <p class="auth-form-switch"><a href="<?= BASE_URL ?>/auth/login.php">Back to sign in</a></p>
+        </div>
+    </section>
+</div>
 <?php layout_footer(); ?>

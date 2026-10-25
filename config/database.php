@@ -14,7 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-define('APP_NAME', 'Sari-Sari Store Management System');
+define('APP_NAME', 'ERH Store Management System');
 define('BASE_URL', 'http://localhost/SariSariStoreManagementSystem');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
