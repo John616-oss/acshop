@@ -86,7 +86,7 @@ layout_header('Resend verification');
 ?>
 <div class="auth-page">
     <section class="auth-welcome">
-        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>ERH Store</a>
+        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>AC Store</a>
         <div class="auth-welcome-copy">
             <p class="auth-kicker">ACCOUNT ACCESS</p>
             <h2>ONE MORE<br><span>STEP TO GO.</span></h2>
@@ -96,7 +96,7 @@ layout_header('Resend verification');
 
     <section class="auth-panel">
         <div class="auth-card">
-            <p class="auth-form-kicker">ERH STORE</p>
+            <p class="auth-form-kicker">AC STORE</p>
             <h2>Resend verification link</h2>
             <p class="muted">Enter the email address you used to register.</p>
 

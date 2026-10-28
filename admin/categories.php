@@ -76,8 +76,10 @@ layout_header('Categories');
                 <tr>
                     <td><?= e($c['name']) ?></td><td><?= e($c['description']) ?></td>
                     <td class="actions-cell category-actions">
-                        <a class="btn btn-small btn-action btn-edit" href="?edit=<?= (int)$c['id'] ?>">Edit</a>
-                        <form method="post" class="inline" onsubmit="return confirm('Delete this category? Products in it will become uncategorized.');"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$c['id'] ?>"><input type="hidden" name="action" value="delete"><button class="btn btn-small btn-action btn-delete">Delete</button></form>
+                        <div class="category-action-buttons">
+                            <a class="btn btn-small btn-action btn-edit" href="?edit=<?= (int)$c['id'] ?>">Edit</a>
+                            <form method="post" class="inline" onsubmit="return confirm('Delete this category? Products in it will become uncategorized.');"><?= csrf_field() ?><input type="hidden" name="id" value="<?= (int)$c['id'] ?>"><input type="hidden" name="action" value="delete"><button class="btn btn-small btn-action btn-delete">Delete</button></form>
+                        </div>
                     </td>
                 </tr>
             <?php endwhile; ?>

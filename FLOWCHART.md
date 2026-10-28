@@ -1,4 +1,4 @@
-# ERH Store Management System Flowchart
+# AC Store Management System Flowchart
 
 ## Main system flow
 

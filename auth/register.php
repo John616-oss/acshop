@@ -105,7 +105,7 @@ layout_header('Create account');
 
 <div class="auth-page">
     <section class="auth-welcome">
-        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>ERH Store</a>
+        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>AC Store</a>
         <div class="auth-welcome-copy">
             <p class="auth-kicker">JOIN THE TEAM</p>
             <h2>YOUR STORE.<br><span>YOUR NEXT STEP.</span></h2>
@@ -115,7 +115,7 @@ layout_header('Create account');
 
     <section class="auth-panel">
         <div class="auth-card">
-            <p class="auth-form-kicker">ERH STORE</p>
+            <p class="auth-form-kicker">AC STORE</p>
             <h2>Create account</h2>
             <p class="muted">Join your store team.</p>
 

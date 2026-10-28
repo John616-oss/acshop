@@ -14,12 +14,31 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-define('APP_NAME', 'ERH Store Management System');
-define('BASE_URL', 'http://localhost/SariSariStoreManagementSystem');
+define('APP_NAME', 'AC Store Management System');
+$documentRoot = realpath($_SERVER['DOCUMENT_ROOT'] ?? '');
+$applicationRoot = realpath(dirname(__DIR__));
+$basePath = '';
+if ($documentRoot !== false && $applicationRoot !== false && str_starts_with(strtolower($applicationRoot), strtolower($documentRoot))) {
+    $basePath = str_replace(DIRECTORY_SEPARATOR, '/', substr($applicationRoot, strlen($documentRoot)));
+}
+$scheme = (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off') ? 'https' : 'http';
+$serverName = $_SERVER['SERVER_NAME'] ?? 'localhost';
+if (!preg_match('/\A[a-zA-Z0-9.-]+\z/', $serverName)) {
+    $serverName = 'localhost';
+}
+$serverPort = (int) ($_SERVER['SERVER_PORT'] ?? 0);
+$defaultPort = $scheme === 'https' ? 443 : 80;
+$portSuffix = $serverPort > 0 && $serverPort !== $defaultPort ? ':' . $serverPort : '';
+define('BASE_URL', $scheme . '://' . $serverName . $portSuffix . rtrim($basePath, '/'));
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'sari_sari_store');
+define('DB_NAME', 'ac_shop');
+if (($_SESSION['_database_name'] ?? null) !== DB_NAME) {
+    $_SESSION = [];
+    session_regenerate_id(true);
+}
+$_SESSION['_database_name'] = DB_NAME;
 
 try {
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);

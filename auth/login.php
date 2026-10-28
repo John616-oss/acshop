@@ -96,7 +96,7 @@ layout_header('Sign in');
 
 <div class="auth-page">
     <section class="auth-welcome">
-        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>ERH Store</a>
+        <a class="auth-brand" href="<?= BASE_URL ?>/index.php"><span class="brand-mark" aria-hidden="true"><img src="<?= BASE_URL ?>/assets/images/Filipino_sari-sari_store_interior_20261025085641.jpg" alt=""></span>AC Store</a>
         <div class="auth-welcome-copy">
             <p class="auth-kicker">STORE MANAGEMENT</p>
             <h2>WELCOME<br><span>TO YOUR STORE</span></h2>
@@ -106,7 +106,7 @@ layout_header('Sign in');
 
     <section class="auth-panel">
         <div class="auth-card">
-            <p class="auth-form-kicker">ERH STORE</p>
+            <p class="auth-form-kicker">AC STORE</p>
             <h2>Sign in</h2>
             <p class="muted">Access your store management account.</p>
 
@@ -151,7 +151,7 @@ layout_header('Sign in');
                 <a href="<?= BASE_URL ?>/auth/resend_verification.php">Resend verification email</a>
             </p>
             <p class="auth-form-switch">
-                New to ERH Store? <a href="<?= BASE_URL ?>/auth/register.php">Create account</a>
+                New to AC Store? <a href="<?= BASE_URL ?>/auth/register.php">Create account</a>
             </p>
         </div>
     </section>

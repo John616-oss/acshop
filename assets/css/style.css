@@ -2149,22 +2149,26 @@ body:has(.auth-card) .auth-card > .muted:not(:first-of-type) { margin-top: 16px;
 }
 /* Keep category edit and delete actions side by side. */
 .category-table { table-layout: fixed; }
-.category-table th:nth-child(1), .category-table td:nth-child(1) { width: 24%; }
-.category-table th:nth-child(2), .category-table td:nth-child(2) { width: 46%; }
-.category-table th:nth-child(3), .category-table td:nth-child(3) { width: 30%; }
-.category-table td:nth-child(2) { white-space: normal; }
-.category-table .category-actions {
+.category-table th:nth-child(1), .category-table td:nth-child(1) { width: 31%; }
+.category-table th:nth-child(2), .category-table td:nth-child(2) { width: 43%; }
+.category-table th:nth-child(3), .category-table td:nth-child(3) { width: 26%; }
+.category-table td:nth-child(1),
+.category-table td:nth-child(2) { white-space: normal; overflow-wrap: anywhere; }
+.category-table td.category-actions { display: table-cell; white-space: normal; }
+.category-action-buttons {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
     gap: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
 }
-.category-table .category-actions .btn.btn-action {
+.category-action-buttons .btn.btn-action {
     min-height: 30px;
     padding: 5px 7px;
+}
+@media (max-width: 480px) {
+    .category-action-buttons { flex-wrap: wrap; gap: 4px; }
+    .category-action-buttons .btn.btn-action { padding: 4px 6px; font-size: 11px; }
 }
 /* Operational workspace refinement */
 :root {
