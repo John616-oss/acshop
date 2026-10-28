@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS sari_sari_store CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE sari_sari_store;
+CREATE DATABASE IF NOT EXISTS ac_shop CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ac_shop;
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS activity_logs;
@@ -158,18 +158,25 @@ CREATE TABLE activity_logs (
 ) ENGINE=InnoDB;
 
 INSERT INTO categories(name,description) VALUES
-('Instant Noodles','Instant noodles and quick meals'),
-('Snacks','Chips, biscuits, and candies'),
-('Drinks','Bottled drinks and powdered beverages'),
-('Household','Daily household essentials');
+('Laptops','Laptop computers and mobile workstations'),
+('Processors & Graphics','Desktop processors and graphics cards'),
+('Memory & Storage','RAM, SSDs, and other storage devices'),
+('Peripherals & Components','PC components and computer accessories');
 
 INSERT INTO suppliers(name,contact_name,phone,email,address) VALUES
 ('Sample General Merchandise','Juan Dela Cruz','09170000001','supplier@example.com','Local supplier - replace with your sample data');
 
 INSERT INTO products(product_code,name,category_id,cost_price,selling_price,stock_quantity,reorder_level) VALUES
-('NOODLE001','Instant Noodles',1,11.00,15.00,40,10),
-('SNACK001','Potato Chips',2,8.00,12.00,25,8),
-('BISCUIT01','Cream Biscuits',2,6.00,10.00,30,8),
-('DRINK001','Bottled Water',3,8.00,12.00,20,5),
-('COFFEE001','Instant Coffee Sachet',3,5.00,7.00,50,10),
-('SOAP001','Laundry Soap',4,15.00,20.00,12,5);
+('LAPTOP001','Lenovo IdeaPad 15 Laptop',1,28000.00,32999.00,5,2),
+('LAPTOP002','ASUS VivoBook 14 Laptop',1,31000.00,35999.00,4,2),
+('CPU001','AMD Ryzen 5 5600G Processor',2,5000.00,6299.00,10,3),
+('CPU002','Intel Core i5-12400F Processor',2,6500.00,7999.00,8,3),
+('GPU001','GeForce RTX 4060 8GB Graphics Card',2,17000.00,19999.00,4,2),
+('RAM001','16GB DDR4 3200MHz Memory',3,1800.00,2299.00,12,4),
+('SSD001','1TB NVMe SSD',3,3000.00,3799.00,10,4),
+('MB001','B550M Micro-ATX Motherboard',4,5200.00,6499.00,6,2),
+('PSU001','650W 80+ Bronze Power Supply',4,2800.00,3499.00,7,3),
+('CASE001','Mid-Tower PC Case',4,2200.00,2799.00,5,2),
+('MON001','24-inch IPS Monitor',4,5300.00,6499.00,5,2),
+('KEY001','Mechanical Keyboard',4,1600.00,2199.00,8,3),
+('MOUSE001','USB Optical Mouse',4,350.00,499.00,15,5);
